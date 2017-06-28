@@ -18,6 +18,6 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = req.getSession();	
 		String login = req.getParameter("login");
 		session.setAttribute("User", login);
-		resp.sendRedirect(req.getContextPath()+"/listProduct.jsp");
+		resp.sendRedirect(req.getContextPath()+"/auth/listProduct");
 	}
 }

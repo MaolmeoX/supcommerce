@@ -1,16 +1,17 @@
 package fr.imie.supcommerce.entity;
 
-import fr.imie.supcommerce.dao.ProductDao;
+import com.sun.istack.internal.Nullable;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Created by MaolmeoX on 15/05/2017.
  */
 @Entity
 @Table(name = "product")
+@XmlRootElement
 public class Product implements Serializable {
 
     @Id
@@ -19,26 +20,11 @@ public class Product implements Serializable {
     private String name;
     private String description;
     private float price;
+
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @Nullable
     private Category category;
-
-    public Product() {
-    }
-
-    public Product(String name, String description, float price) {
-        this.id = new Long(ProductDao.getAllProducts().size()) + 1;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
-
-    public Product(ArrayList<String> values) {
-        this.id = new Long(ProductDao.getAllProducts().size()) + 1;
-        this.name = values.get(0);
-        this.description = values.get(1);
-        this.price = Float.parseFloat(values.get(2));
-    }
 
     @Override
     public String toString() {
@@ -77,12 +63,13 @@ public class Product implements Serializable {
     public void setPrice(float price) {
         this.price = price;
     }
-
+    @XmlTransient
     public Category getCategory() {
         return category;
     }
 
     public void setCategory(Category category) {
         this.category = category;
+
     }
 }

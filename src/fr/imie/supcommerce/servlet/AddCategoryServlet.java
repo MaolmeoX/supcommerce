@@ -52,9 +52,7 @@ public class AddCategoryServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         RequestDispatcher rd = req.getRequestDispatcher("/auth/addCategory.jsp");
         rd.forward(req, resp);
-
     }
 }

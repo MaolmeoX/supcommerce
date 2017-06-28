@@ -31,5 +31,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="JPA 2.0-2.0" level="project" />
     <orderEntry type="library" name="Tomcat" level="project" />
+    <orderEntry type="library" name="javax.servlet:jstl:1.1.2" level="project" />
+    <orderEntry type="library" name="jstl-1.2" level="project" />
+    <orderEntry type="library" name="com.kumuluz.ee:kumuluzee-jax-rs-jersey:2.2.0" level="project" />
   </component>
 </module>

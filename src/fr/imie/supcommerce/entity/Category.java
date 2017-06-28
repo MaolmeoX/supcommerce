@@ -1,6 +1,8 @@
 package fr.imie.supcommerce.entity;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.*;
+
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -9,7 +11,8 @@ import java.util.Collection;
  */
 
 @Entity
-@Table (name="category")
+@Table(name = "category")
+@XmlRootElement
 public class Category implements Serializable {
 
     @Id
@@ -17,8 +20,15 @@ public class Category implements Serializable {
     private int id;
     private String name;
 
-    @OneToMany(mappedBy="category")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category") // fetch = FetchType.EAGER,
     private Collection<Product> products;
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 
     public int getId() {
         return id;
@@ -32,7 +42,11 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    public void addProduct(Product product){
+    public Collection<Product> getProducts() {
+        return products;
+    }
 
+    public void setProducts(Collection<Product> products) {
+        this.products = products;
     }
 }

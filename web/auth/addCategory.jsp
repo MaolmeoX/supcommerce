@@ -11,6 +11,7 @@
     <title>Add category</title>
 </head>
 <body>
+<jsp:include page="/header.jsp"></jsp:include>
 <form action="/auth/addCategory" method="post">
     <input type="text" placeholder="Saisir nom category" name="nameCategory">
     <input type="submit">

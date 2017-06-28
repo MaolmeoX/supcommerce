@@ -20,11 +20,5 @@
     <input type="number" placeholder="Saisir prix produit" name="priceProduct">
     <input type="submit">
 </form>
-
-<%
-    if (request.getMethod().equals("POST")) {
-        Product product = new Product(request.getParameter("nameProduct"), request.getParameter("descriptionProduct"), Float.parseFloat(request.getParameter("priceProduct")));
-    }
-%>
 </body>
 </html>

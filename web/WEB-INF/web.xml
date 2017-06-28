@@ -8,4 +8,28 @@
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
+    <listener>
+        <listener-class>fr.imie.supcommerce.listener.PersistenceAppListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>rest-test</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <!-- Register resources and providers under my.package. -->
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>fr.imie.supcommerce.rest</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>jersey.config.server.tracing</param-name>
+            <param-value>ALL</param-value>
+        </init-param>
+
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>rest-test</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
 </web-app>
